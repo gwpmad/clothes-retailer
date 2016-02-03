@@ -1,0 +1,25 @@
+{
+  "name": "clothing-retailer",
+  "version": "4.0.0",
+  "description": "an online website for a clothing retailer",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "karma start test/karma.conf.js",
+    "protractor-test": "protractor test/e2e/conf.js",
+    "start": "node server.js"
+  },
+  "author": "George Maddocks",
+  "license": "ISC",
+  "devDependencies": {
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.19",
+    "karma-chrome-launcher": "^0.2.2",
+    "karma-jasmine": "^0.3.7",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "phantomjs": "^2.1.3",
+    "phantomjs-prebuilt": "^2.1.3"
+  }
+}
