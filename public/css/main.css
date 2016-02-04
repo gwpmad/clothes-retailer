@@ -1,0 +1,24 @@
+#catalogue-product-name{
+  font-weight: bold;
+  background-color: #FCFC32;
+  font-family: "Verdana";
+}
+
+#cart-product-name{
+  font-weight: bold;
+  background-color: #32CDFC;
+  font-family: "Verdana";
+}
+
+#cart-img{
+  width:27;
+  position:fixed;
+}
+
+#cart-div{
+  background-image: url('../assets/shopping-cart.png')
+}
+
+#total-price{
+  background-color: #63FFDD;
+}

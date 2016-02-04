@@ -64,7 +64,7 @@
       else if(self.getSubtotalFromFactory() <= 75) {
         alert('You must spend over £75 to use this voucher');
       }
-      else{
+      else {
         alert('You must have footwear in your cart to use this voucher');
       }
     };

@@ -1,7 +1,8 @@
 describe('To Do List', function() {
 
   var catalogueLength = 13,almondToeCourtShoesPrice = 99.00,
-    addToCartButtonZero,removeFromCartButtonZero,catalogue,cart,previousQuantity;
+    addToCartButtonZero,removeFromCartButtonZero,catalogue,cart,previousQuantity,
+    fivePoundVoucher,tenPoundVoucher,fifteenPoundVoucher;
 
   beforeEach(function() {
     browser.get('http://localhost:8080');
@@ -69,6 +70,5 @@ describe('To Do List', function() {
         expect(parseInt(response)).toEqual(0);
       });
     });
-
   });
 });
