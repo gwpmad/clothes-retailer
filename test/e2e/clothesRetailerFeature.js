@@ -1,6 +1,6 @@
 describe('To Do List', function() {
 
-  var catalogueLength = 13,
+  var catalogueLength = 13,almondToeCourtShoesPrice = 99.00,
     addToCartButtonZero,removeFromCartButtonZero,catalogue,cart,previousQuantity;
 
   beforeEach(function() {
@@ -26,6 +26,7 @@ describe('To Do List', function() {
       quantityInStock = element(by.id('quantity-in-stock'));
       quantityInStock.getText().then(function(response) {
         previousQuantity = parseInt(response);
+      subtotalPrice = element(by.id('subtotal-price'));
       });
     });
 
@@ -53,6 +54,19 @@ describe('To Do List', function() {
       removeFromCartButtonZero.click();
       quantityInStock.getText().then(function(response) {
         expect(parseInt(response)).toEqual(previousQuantity + 1);
+      });
+    });
+
+    it('displays the subtotal correctly', function() {
+      subtotalPrice.getText().then(function(response) {
+        expect(parseInt(response)).toEqual(almondToeCourtShoesPrice);
+      });
+    });
+
+    it('alters the subtotal correctly when the cart changes', function() {
+      removeFromCartButtonZero.click();
+      subtotalPrice.getText().then(function(response) {
+        expect(parseInt(response)).toEqual(0);
       });
     });
 

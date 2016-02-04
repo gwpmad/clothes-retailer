@@ -1,7 +1,8 @@
 (function() {
 
   function cartArray() {
-    var arrayOfItems = [];
+    var arrayOfItems = [],
+    discountTotal = 0;
 
     function getArray () {
       return arrayOfItems;
@@ -19,10 +20,44 @@
       }
     }
 
+    function calculateSubtotal() {
+      var sum = 0;
+      for(i = 0; i < arrayOfItems.length; i++) {
+        sum += arrayOfItems[i].price;
+      }
+      return sum;
+    }
+
+    function getDiscountTotal() {
+      return discountTotal;
+    }
+
+    function changeDiscountTotal(amount) {
+      discountTotal += amount;
+    }
+
+    function calculateTotal() {
+      return calculateSubtotal() - discountTotal;
+    }
+
+    function footwearInCart() {
+      for(i = 0; i < arrayOfItems.length; i++) {
+        if(arrayOfItems[i].isFootwear) {
+          return true;
+        }
+      }
+      return false;
+    }
+
     return {
       getArray: getArray,
       addItemToArray: addItemToArray,
-      removeItemFromArray: removeItemFromArray
+      removeItemFromArray: removeItemFromArray,
+      calculateSubtotal: calculateSubtotal,
+      getDiscountTotal: getDiscountTotal,
+      changeDiscountTotal: changeDiscountTotal,
+      calculateTotal: calculateTotal,
+      footwearInCart: footwearInCart
     };
   }
 

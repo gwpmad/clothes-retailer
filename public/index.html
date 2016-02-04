@@ -37,26 +37,49 @@
           </table>
         </div>
       <div class="col-sm-4" data-ng-controller="CartController as cartCtrl">
-          <table class="table">
-            <thead>
-              <th>Product</td>
-              <th>Price</td>
-              <th>Remove from Cart</td>
-            </thead>
-            <tbody>
-              <tr data-ng-repeat="item in cartCtrl.getCartArrayFromFactory() track by $index">
-                <td><span data-ng-bind="item.productName"></td>
-                <td><span data-ng-bind="item.price.toFixed(2)"></td>
-                <td>
-                  <button id="remove-from-cart" class="btn" data-ng-click="cartCtrl.removeItemFromCartArray(item)">Remove from Cart</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <table class="table">
+          <thead>
+            <th>Product</td>
+            <th>Price</td>
+            <th>Remove from Cart</td>
+          </thead>
+          <tbody>
+            <tr data-ng-repeat="item in cartCtrl.getCartArrayFromFactory() track by $index">
+              <td><span data-ng-bind="item.productName"></td>
+              <td><span data-ng-bind="item.price.toFixed(2)"></td>
+              <td>
+                <button id="remove-from-cart" class="btn" data-ng-click="cartCtrl.removeItemFromCartArray(item)">Remove from Cart</button>
+              </td>
+            </tr>
+            <tr id=subtotal>
+              <td><h5>Subtotal (vouchers not included)</h4></td>
+              <td><h5
+                id="subtotal-price" data-ng-bind="cartCtrl.getSubtotalFromFactory().toFixed(2)"></td>
+            </tr>
+            <tr id=total>
+              <td><h4>Total</h4></td>
+              <td><h4
+                id="subtotal-price" data-ng-bind="cartCtrl.getTotalFromFactory().toFixed(2)"></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
 
+  <div class="row" data-ng-controller="CartController as cartCtrl">
+    <div class="col-sm-4">
+      <button id="five-pound-voucher" class="btn"
+      data-ng-click="cartCtrl.applyFivePoundVoucher()">£5 off</button>
+    </div>
+    <div class="col-sm-4">
+      <button id="ten-pound-voucher" class="btn"
+      data-ng-click="cartCtrl.applyTenPoundVoucher()">£10 off</button>
+    </div>
+    <div class="col-sm-4">
+      <button id="fifteen-pound-voucher" class="btn"
+      data-ng-click="cartCtrl.applyFifteenPoundVoucher()">£15 off</button>
+    </div>
+  </div>
 
 
 
@@ -66,5 +89,6 @@
     <script src="js/cartArrayFactory.js"></script>
     <script src="js/catalogueController.js"></script>
     <script src="js/clothesFactory.js"></script>
+    <script src="js/voucherFactory.js"></script>
   </body>
 </html>
