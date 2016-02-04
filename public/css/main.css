@@ -22,3 +22,8 @@
 #total-price{
   background-color: #63FFDD;
 }
+
+#vouchers-title{
+  position: relative;
+  left: 0.7em;
+}
