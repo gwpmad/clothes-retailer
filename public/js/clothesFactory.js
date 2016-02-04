@@ -44,7 +44,7 @@
     }, {
       "productName": "Fine Stripe Short Sleeve Shirt, Green",
       "category": "Men’s Casualwear",
-      "price": [49.99, 39.99],
+      "price": 39.99,
       "quantityInStock": 3
     }, {
       "productName": "Sharkskin Waistcoat, Charcoal",
@@ -66,14 +66,34 @@
       "category": "Women’s Formalwear",
       "price": 540.00,
       "quantityInStock": 5
-    }, ];
+    } ];
 
     function getClothesCatalogue() {
       return clothesCatalogue;
     }
 
+    function reduceQuantityOfItem(item) {
+      var index = _findIndexInClothesCatalogue(item.productName);
+      clothesCatalogue[index].quantityInStock -= 1;
+    }
+
+    function increaseQuantityOfItem(item) {
+      var index = _findIndexInClothesCatalogue(item.productName);
+      clothesCatalogue[index].quantityInStock +=1;
+    }
+
+    function _findIndexInClothesCatalogue(productName) {
+      for(i = 0; i < clothesCatalogue.length; i++) {
+        if(clothesCatalogue[i].productName === productName) {
+          return i;
+        }
+      }
+    }
+
     return {
-      getClothesCatalogue: getClothesCatalogue
+      getClothesCatalogue: getClothesCatalogue,
+      reduceQuantityOfItem: reduceQuantityOfItem,
+      increaseQuantityOfItem: increaseQuantityOfItem
     };
   }
 

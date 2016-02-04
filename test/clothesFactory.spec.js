@@ -1,5 +1,5 @@
 describe('factory: Clothes', function(){
-  var clothes,clothesCatalogue;
+  var clothes,clothesCatalogue,item;
 
   beforeEach(module('ClothesRetailer'));
 
@@ -51,7 +51,7 @@ describe('factory: Clothes', function(){
     }, {
       "productName": "Fine Stripe Short Sleeve Shirt, Green",
       "category": "Men’s Casualwear",
-      "price": [49.99, 39.99],
+      "price": 39.99,
       "quantityInStock": 3
     }, {
       "productName": "Sharkskin Waistcoat, Charcoal",
@@ -76,8 +76,28 @@ describe('factory: Clothes', function(){
     }, ];
   });
 
+  beforeEach(function(){
+    item = {
+      "productName": "Almond Toe Court Shoes, Patent Black",
+      "category": "Women's Footwear",
+      "price": 99.00,
+      "quantityInStock": 5
+    };
+  });
+
   it('returns the catalogue of clothes', function(){
     expect(clothes.getClothesCatalogue()).toEqual(clothesCatalogue);
   });
+
+  it('can reduce the quantity in stock of a particular item', function() {
+    clothes.reduceQuantityOfItem(item);
+    expect(clothes.getClothesCatalogue()[0].quantityInStock).toEqual(4);
+  });
+
+  it('can increase the quantity in stock of a particular item', function() {
+    clothes.increaseQuantityOfItem(item);
+    expect(clothes.getClothesCatalogue()[0].quantityInStock).toEqual(6);
+  });
+
 
 });
