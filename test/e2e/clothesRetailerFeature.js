@@ -60,14 +60,14 @@ describe('To Do List', function() {
 
     it('displays the subtotal correctly', function() {
       subtotalPrice.getText().then(function(response) {
-        expect(parseInt(response)).toEqual(almondToeCourtShoesPrice);
+        expect(parseInt(response.substring(1))).toEqual(almondToeCourtShoesPrice);
       });
     });
 
     it('alters the subtotal correctly when the cart changes', function() {
       removeFromCartButtonZero.click();
       subtotalPrice.getText().then(function(response) {
-        expect(parseInt(response)).toEqual(0);
+        expect(parseInt(response.substring(1))).toEqual(0);
       });
     });
   });

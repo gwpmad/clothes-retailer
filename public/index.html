@@ -25,19 +25,25 @@
           </tr>
         </thead>
         <tbody>
-          <tr data-ng-repeat="item in catalCtrl.getClothesCatalogue()">
-            <td><span id="catalogue-product-name" data-ng-bind="item.productName"></td>
+          <tr data-ng-repeat="item in catalCtrl.getClothesCatalogue()"
+            ng-mouseover="hoverToggle = true" ng-mouseleave="hoverToggle =
+            false" ng-class="{'active' : hoverToggle}">
+            <td><span id="catalogue-product-name" data-ng-bind="item.productName">
+            </td>
                 <td><span data-ng-bind="item.category"></td>
                   <td><span data-ng-bind="'£' + item.price.toFixed(2)"></td>
-                <td><span id="quantity-in-stock" data-ng-bind="item.quantityInStock"></td>
+                <td><span id="quantity-in-stock"
+                  data-ng-bind="item.quantityInStock"></td>
                 <td data-ng-controller="CartController as cartCtrl">
-                  <button id="add-to-cart" class="btn btn-success" data-ng-click="cartCtrl.addItemToCartArray(item)">Add to Cart</button>
+                  <button id="add-to-cart" class="btn btn-success"
+                    data-ng-click="cartCtrl.addItemToCartArray(item)">Add to Cart
+                  </button>
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
-      <div class="col-sm-4" data-ng-controller="CartController as cartCtrl" id="cart-div">
+      <div class="col-sm-4" data-ng-controller="CartController as cartCtrl" id="cart-div" ng-class="{'cart-with-items' : cartCtrl.getCartArrayFromFactory().length > 0}">
         <table class="table" id="cart-table">
           <thead>
             <th>Product</td>
@@ -45,22 +51,25 @@
             <th>Remove from Cart</td>
           </thead>
           <tbody>
-            <tr data-ng-repeat="item in cartCtrl.getCartArrayFromFactory() track by $index">
+            <tr data-ng-repeat="item in cartCtrl.getCartArrayFromFactory() track by $index" ng-mouseover="hoverToggle = true" ng-mouseleave="hoverToggle = false" ng-class="{'active' : hoverToggle}">
               <td><span data-ng-bind="item.productName" id="cart-product-name"></td>
               <td><span data-ng-bind="'£' + item.price.toFixed(2)"></td>
               <td>
-                <button id="remove-from-cart" class="btn btn-warning" data-ng-click="cartCtrl.removeItemFromCartArray(item)">Remove from Cart</button>
+                <button id="remove-from-cart" class="btn btn-warning"
+                  data-ng-click="cartCtrl.removeItemFromCartArray(item)">
+                  Remove from Cart
+                </button>
               </td>
             </tr>
             <tr id=subtotal>
               <td><h5>Subtotal</h4></td>
-              <td><h5
-                id="subtotal-price" data-ng-bind="'£' + cartCtrl.getSubtotalFromFactory().toFixed(2)"></td>
+              <td><h5 id="subtotal-price" data-ng-bind="'£' + cartCtrl.getSubtotalFromFactory().toFixed(2)"></td>
             </tr>
             <tr id=total>
               <td><h4>Total</h4></td>
               <td><h4
-                id="total-price" data-ng-bind="'£' + cartCtrl.getTotalFromFactory().toFixed(2)"></td>
+                id="total-price" data-ng-bind="'£' +
+                cartCtrl.getTotalFromFactory().toFixed(2)"></td>
             </tr>
           </tbody>
         </table>

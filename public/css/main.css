@@ -15,7 +15,7 @@
   position:fixed;
 }
 
-#cart-div{
+.cart-with-items{
   background-image: url('../assets/shopping-cart.png')
 }
 

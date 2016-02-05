@@ -8,7 +8,7 @@
     };
 
     self.addItemToCartArray = function(item) {
-      if(item.quantityInStock > 0){
+      if (item.quantityInStock > 0) {
         CartArray.addItemToArray(item);
         Clothes.reduceQuantityOfItem(item);
       } else {
@@ -42,12 +42,10 @@
         self.getSubtotalFromFactory() > 50) {
         CartArray.changeDiscountTotal(10);
         Voucher.applyTenPoundVoucher();
+      } else if (self.getSubtotalFromFactory() <= 50) {
+        alert('You must spend over £50 to use this voucher');
       } else {
-        if (self.getSubtotalFromFactory() <= 50) {
-          alert('You must spend over £50 to use this voucher');
-        } else {
-          alert('You have already used this voucher');
-        }
+        alert('You have already used this voucher');
       }
     };
 
@@ -57,14 +55,11 @@
         CartArray.footwearInCart()) {
         CartArray.changeDiscountTotal(15);
         Voucher.applyFifteenPoundVoucher();
-      }
-      else if (!Voucher.canApplyFifteenPoundVoucher()) {
+      } else if (!Voucher.canApplyFifteenPoundVoucher()) {
         alert('You have already used this voucher');
-      }
-      else if(self.getSubtotalFromFactory() <= 75) {
+      } else if (self.getSubtotalFromFactory() <= 75) {
         alert('You must spend over £75 to use this voucher');
-      }
-      else {
+      } else {
         alert('You must have footwear in your cart to use this voucher');
       }
     };
