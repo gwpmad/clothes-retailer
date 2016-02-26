@@ -51,7 +51,7 @@
             <th>Remove from Cart</td>
           </thead>
           <tbody>
-            <tr data-ng-repeat="item in cartCtrl.getCartArrayFromFactory() track by $index" ng-mouseover="hoverToggle = true" ng-mouseleave="hoverToggle = false" ng-class="{'active' : hoverToggle}">
+            <tr data-ng-repeat="item in cartCtrl.getCartArrayFromFactory() track by $index">
               <td><span data-ng-bind="item.productName" id="cart-product-name"></td>
               <td><span id="cart-product-price"data-ng-bind="'£' + item.price.toFixed(2)"></td>
               <td>
