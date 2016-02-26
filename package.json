@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "karma start test/karma.conf.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "postinstall": "bash ./post_install.sh"
   },
   "author": "George Maddocks",
   "license": "ISC",
