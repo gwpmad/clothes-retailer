@@ -1,2 +1,2 @@
 #!/bin/bash
-bower install
+./node_modules/bower/bin/bower install
