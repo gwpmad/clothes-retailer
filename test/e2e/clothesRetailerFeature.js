@@ -33,14 +33,14 @@ describe('To Do List', function() {
 
     it('adds an item of clothing to the cart', function() {
       cart.getText().then(function(response) {
-          expect(response[0]).toContain('Almond Toe Court Shoes');
+          expect(response[0]).toContain('ALMOND TOE COURT SHOES');
         });
     });
 
     it('removes an item of clothing from the cart', function() {
       removeFromCartButtonZero.click();
       cart.getText().then(function(response) {
-        expect(response[0]).not.toContain('Almond Toe Court Shoes');
+        expect(response[0]).not.toContain('ALMOND TOE COURT SHOES');
       });
     });
 

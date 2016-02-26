@@ -1,29 +1,54 @@
-#catalogue-product-name{
+body {
+  font-family: "Futura";
+}
+#catalogue-product-name {
   font-weight: bold;
-  background-color: #FCFC32;
-  font-family: "Verdana";
+  text-transform: uppercase;
+  font-size: 2em
 }
-
-#cart-product-name{
+#catalogue-table-head {
+  background-color: #2A2C2E;
+  color: #FFFFFF;
+  font-size: 1.2em
+}
+#cart-table-head {
+  background-color: #2A2C2E;
+  color: #FFFFFF;
+  font-size: 1.2em
+}
+#cart-product-name {
   font-weight: bold;
-  background-color: #32CDFC;
-  font-family: "Verdana";
+  color: #FFFFFF;
+  background-color: #222;
+  text-transform: uppercase;
+  font-size: 2em
 }
-
-#cart-img{
-  width:27;
-  position:fixed;
+#cart-img {
+  width: 27;
+  position: fixed;
 }
-
-.cart-with-items{
-  background-image: url('../assets/shopping-cart.png')
+#cart-product-price {
+  font-weight: bold;
+  color: #FFFFFF;
+  background-color: #222;
+  text-transform: uppercase;
+  font-size: 1em
 }
-
-#total-price{
-  background-color: #63FFDD;
+.cart-with-items {
+  background-image: url('../assets/accessories.jpg')
 }
-
-#vouchers-title{
+.subtotal {
+  background-color: #EB9E3E;
+  display: inline;
+}
+.total-price {
+  background-color: #1EFBFF;
+  display: inline;
+}
+#vouchers-title {
   position: relative;
   left: 0.7em;
+}
+.voucher-button {
+  text-transform: uppercase;
 }

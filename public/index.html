@@ -15,7 +15,7 @@
   <div class="row" data-ng-controller="CatalogueController as catalCtrl">
     <div class="col-sm-8">
       <table class="table">
-        <thead>
+        <thead id="catalogue-table-head">
           <tr>
             <th>Item</th>
             <th>Category</th>
@@ -45,7 +45,7 @@
         </div>
       <div class="col-sm-4" data-ng-controller="CartController as cartCtrl" id="cart-div" ng-class="{'cart-with-items' : cartCtrl.getCartArrayFromFactory().length > 0}">
         <table class="table" id="cart-table">
-          <thead>
+          <thead id="cart-table-head">
             <th>Product</td>
             <th>Price</td>
             <th>Remove from Cart</td>
@@ -53,7 +53,7 @@
           <tbody>
             <tr data-ng-repeat="item in cartCtrl.getCartArrayFromFactory() track by $index" ng-mouseover="hoverToggle = true" ng-mouseleave="hoverToggle = false" ng-class="{'active' : hoverToggle}">
               <td><span data-ng-bind="item.productName" id="cart-product-name"></td>
-              <td><span data-ng-bind="'£' + item.price.toFixed(2)"></td>
+              <td><span id="cart-product-price"data-ng-bind="'£' + item.price.toFixed(2)"></td>
               <td>
                 <button id="remove-from-cart" class="btn btn-warning"
                   data-ng-click="cartCtrl.removeItemFromCartArray(item)">
@@ -61,14 +61,13 @@
                 </button>
               </td>
             </tr>
-            <tr id=subtotal>
-              <td><h5>Subtotal</h4></td>
-              <td><h5 id="subtotal-price" data-ng-bind="'£' + cartCtrl.getSubtotalFromFactory().toFixed(2)"></td>
+            <tr>
+              <td><h5 class=subtotal>Subtotal</h4></td>
+              <td><h5 id="subtotal-price" class=subtotal data-ng-bind="'£' + cartCtrl.getSubtotalFromFactory().toFixed(2)"></td>
             </tr>
-            <tr id=total>
-              <td><h4>Total</h4></td>
-              <td><h4
-                id="total-price" data-ng-bind="'£' +
+            <tr>
+              <td><h4 class=total-price>Total</h4></td>
+              <td><h4 class=total-price data-ng-bind="'£' +
                 cartCtrl.getTotalFromFactory().toFixed(2)"></td>
             </tr>
           </tbody>
@@ -80,14 +79,15 @@
     <h3 id="vouchers-title">Vouchers</h3>
     <div class="col-sm-4">
       <button id="five-pound-voucher" class="btn btn-primary btn-lg btn-block"
-      data-ng-click="cartCtrl.applyFivePoundVoucher()">£5 off</button>
+      data-ng-click="cartCtrl.applyFivePoundVoucher()" class="voucher-button">£5 off</button>
     </div>
     <div class="col-sm-4">
       <button id="ten-pound-voucher" class="btn btn-primary btn-lg btn-block"
       data-ng-click="cartCtrl.applyTenPoundVoucher()">£10 off</button>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-4" class="voucher-button">
       <button id="fifteen-pound-voucher" class="btn btn-primary btn-lg btn-block"
+
       data-ng-click="cartCtrl.applyFifteenPoundVoucher()">£15 off</button>
     </div>
   </div>
