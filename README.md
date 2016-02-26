@@ -1,6 +1,8 @@
 Clothes Retailer
 ===============
 
+The app has been deployed to Heroku and can be viewed [here](https://immense-wave-52332.herokuapp.com/).
+
 This is an online store that sells an array of different clothes. Users can select items of clothing, add them to their cart, and make use of vouchers to lower the total price.
 
 Here are the user stories that the application follows:
@@ -33,7 +35,7 @@ I built the application using Angular JavaScript in tandem with HTML. My main ob
 * Concerns are separated within the code; to that end, I used the following:
   * Two controllers, one to communicate with the clothing catalogue and one to manage the user's cart.
   * Three factories, one to hold data about the clothes available, one to store the array of items that have been added to the cart and one to handle voucher logic.
-* CSS is not heavily used as I spent the majority of my time working to ensure that the back-end logic was secure and tested. However, I used Bootstrap to add responsiveness and a clear user interface.
+* I used Bootstrap to add responsiveness and a clear user interface. I used CSS to make the application as visually appealing and contemporary-looking as possible.
 * The application can be locally hosted using an Express server.
 
 How to run
